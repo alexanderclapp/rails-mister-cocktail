@@ -2,8 +2,7 @@
   <div class="row">
     <% @cocktails.each do |cocktail| %>
     <div class="col-xs-3">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-        <div class="card-category">TBD</div>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= background_photo(cocktail) %>');">
         <div class="card-description">
           <h2><%= cocktail.name %></h2>
         </div>

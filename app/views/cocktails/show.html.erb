@@ -1,5 +1,6 @@
 <div class="container">
-  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://assets.bonappetit.com/photos/57acbfbc53e63daf11a4d9a9/16:9/w_1200,c_limit/margarita.jpg');">
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),
+  url('<%= background_photo(@cocktail) %>');">
     <div class="banner-content">
       <h1><%= @cocktail.name %></h1>
     </div>
@@ -16,7 +17,18 @@
       <br>
       <% end %>
       </p>
-
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 col-sm-offset-2">
+      <p><strong>User images:<br></strong>
+      <% if @cocktail.photo? %>
+        <%= cl_image_tag @cocktail.photo.path, width: 200, height: 300, crop: :fill %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 col-sm-offset-2">
       <%= link_to 'Add Dose', new_cocktail_dose_path(@cocktail) %>
       <%= link_to 'Back', cocktails_path %>
     </div>
