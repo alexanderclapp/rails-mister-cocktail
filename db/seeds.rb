@@ -17,6 +17,7 @@ request_uri = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 request_query = ''
 url = "#{request_uri}#{request_query}"
 
+Dose.destroy_all
 Ingredient.destroy_all
 # Actually fetch the contents of the remote URL as a String.
 buffer = open(url).read

@@ -1,17 +1,24 @@
-<p>
-  <strong>Name:</strong>
-  <%= @cocktail.name %>
-</p>
-<p>
-<strong>Recipe Details:<br></strong>
-<% @cocktail.doses.each do |dose| %>
-<%= dose.ingredient.name %>
-<%= dose.description %>
-<%= link_to 'Destroy Dose', dose_path(dose), method: :delete %>
-<br>
-<% end %>
-</p>
+<div class="container">
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://assets.bonappetit.com/photos/57acbfbc53e63daf11a4d9a9/16:9/w_1200,c_limit/margarita.jpg');">
+    <div class="banner-content">
+      <h1><%= @cocktail.name %></h1>
+    </div>
+  </div>
 
-<%= link_to 'Add Dose', new_cocktail_dose_path(@cocktail) %>
-<%= link_to 'Back', cocktails_path %>
+  <div class="row">
+    <div class="col-xs-6 col-sm-offset-2">
+      <p>
+      <strong>Recipe Details:<br></strong>
+      <% @cocktail.doses.each do |dose| %>
+      <%= dose.ingredient.name %>
+      <%= dose.description %>
+      <%= link_to 'Destroy Dose', dose_path(dose), method: :delete %>
+      <br>
+      <% end %>
+      </p>
 
+      <%= link_to 'Add Dose', new_cocktail_dose_path(@cocktail) %>
+      <%= link_to 'Back', cocktails_path %>
+    </div>
+  </div>
+</div>
