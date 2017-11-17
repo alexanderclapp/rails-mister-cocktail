@@ -9,19 +9,23 @@
   <div class="row">
     <div class="col-xs-6 col-sm-offset-2">
       <p>
-      <strong>Recipe Details:<br></strong>
-      <% @cocktail.doses.each do |dose| %>
-      <%= dose.ingredient.name %>
-      <%= dose.description %>
-      <%= link_to 'Destroy Dose', dose_path(dose), method: :delete %>
-      <br>
+      <% unless @cocktail.doses.empty? %>
+        <strong>Recipe Details:<br></strong>
+        <% @cocktail.doses.each do |dose| %>
+        <%= dose.ingredient.name %>
+        <%= dose.description %>
+        <%= link_to 'Destroy Dose', dose_path(dose), method: :delete %>
+        <br>
+        <% end %>
+        </p>
       <% end %>
-      </p>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-6 col-sm-offset-2">
-      <p><strong>User images:<br></strong>
+      <% unless @cocktail.photo.nil? %>
+        <p><strong>User images:<br></strong>
+      <% end %>
       <% if @cocktail.photo? %>
         <%= cl_image_tag @cocktail.photo.path, width: 200, height: 300, crop: :fill %>
       <% end %>
