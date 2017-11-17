@@ -1,14 +1,7 @@
 <div class="container">
   <div class="row">
     <% @cocktails.each do |cocktail| %>
-    <div class="col-xs-3">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= background_photo(cocktail) %>');">
-        <div class="card-description">
-          <h2><%= cocktail.name %></h2>
-        </div>
-        <%= link_to 'Show', cocktail, { :class=>"card-link" } %>
-      </div>
-    </div>
+      <%= render 'shared/card', alex_cocktail: cocktail %>
     <% end %>
   </div>
 </div>
